@@ -1,14 +1,14 @@
 {
   "name": "serverless-qr-code",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generate a QR Code",
   "main": "handler.js",
   "scripts": {
     "offline": "serverless offline",
-    "deploy:dev": "rm -Rf .build && env $(cat .env) serverless deploy",
+    "deploy:dev": "rm -Rf .build && serverless deploy",
     "remove-app": "serverless remove",
     "remove-app:prod": "serverless remove --stage production",
-    "deploy:prod": "rm -Rf .build && env $(cat .env) serverless deploy --stage production"
+    "deploy:prod": "rm -Rf .build && serverless deploy --stage production"
   },
   "author": "Alessio Michelini",
   "license": "ISC",
@@ -22,7 +22,6 @@
     "webpack": "^5.72.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.1116.0",
     "axios": "^0.26.1",
     "qrcode": "^1.5.0",
     "svgson": "^5.2.1"
