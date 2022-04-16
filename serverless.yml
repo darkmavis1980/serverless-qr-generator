@@ -1,0 +1,50 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: serverless-qr-generator
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+useDotenv: true
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+custom:
+  serverless-offline:
+    httpPort: 4001
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'production'}
+  region: ${opt:region, 'eu-west-1'}
+  iam:
+    role: arn:aws:iam::123456789:role/replace-this-guy
+  apiGateway:
+    shouldStartNameWithService: true
+
+functions:
+  generateQR:
+    handler: handler.generate
+    events:
+      - http:
+          path: generate
+          method: post
+          cors: true
