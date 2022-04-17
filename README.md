@@ -87,3 +87,11 @@ provider:
 ```
 
 For more info regarding AWS IAM, please read this [documentation](https://www.serverless.com/framework/docs/providers/aws/guide/iam).
+
+## Test the application
+
+This package uses Jest as a test runner, to run the tests you will need to run the following command:
+
+```bash
+npm test
+```
