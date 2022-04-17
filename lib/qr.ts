@@ -2,6 +2,7 @@
 
 import * as QRCode from 'qrcode';
 import {QRFormBody} from './interfaces/form';
+const QR_VERSION = 2; // QR version, range 2-40
 
 const origins = {
   'Access-Control-Allow-Origin': '*', // Required for CORS support to work
@@ -12,9 +13,10 @@ export const generateQR = async (event) => {
   try {
     const {
       url,
+      version = QR_VERSION
     } : QRFormBody = JSON.parse(event.body);
 
-    const generated = await QRCode.toString(url, { type: 'svg' });
+    const generated = await QRCode.toString(url, { type: 'svg', version });
     const response = {
       statusCode: 200,
       headers: {
