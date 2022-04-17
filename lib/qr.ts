@@ -3,7 +3,12 @@
 import * as QRCode from 'qrcode';
 import {QRFormBody} from './interfaces/form';
 
-export const generate = async (event, context) => {
+const origins = {
+  'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+  'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
+}
+
+export const generate = async (event) => {
   try {
     const {
       url,
@@ -14,8 +19,7 @@ export const generate = async (event, context) => {
       statusCode: 200,
       headers: {
         'Content-Type': 'image/svg+xml',
-        'Access-Control-Allow-Origin': '*', // Required for CORS support to work
-        'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
+        ...origins,
       },
       body: generated
     };
@@ -24,8 +28,7 @@ export const generate = async (event, context) => {
     const response = {
       statusCode: 500,
       headers: {
-        'Access-Control-Allow-Origin': '*', // Required for CORS support to work
-        'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
+        ...origins,
       },
       body: JSON.stringify({ message: 'Something went wrong.' })
     };
