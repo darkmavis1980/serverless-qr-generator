@@ -71,13 +71,45 @@ With the following payload:
 ```json
 {
   "url": "https://www.google.com",
-  "version": 4
+  "version": 4,
+  "type": "svg"
 }
 ```
 
-> Note: the version is optional and defaults to 1, and accepts a range between 1 and 40. For more info please refer to the [node-qrcode official documentation](https://github.com/soldair/node-qrcode#qr-code-capacity).
+The `version` is optional and defaults to 1, and accepts a range between 1 and 40. For more info please refer to the [node-qrcode official documentation](https://github.com/soldair/node-qrcode#qr-code-capacity).
+The `type` is also optional and defaults to `svg`. It accepts png, svg, terminal or utf8.
 
-The output will be a SVG image with the QR code.
+The output will be a image with the QR code, if you are using the endpoint via terminal, using curl, it's recommended to use either `terminal` or `utf8` as an type.
+Example:
+
+```bash
+# Run in local environment
+curl --location --request POST 'http://localhost:4001/production/generate' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "url": "https://example.com",
+    "version": 4,
+    "type": "utf8"
+}'
+
+    █▀▀▀▀▀█  ██   ▀█▄ ▄ ▄█ ▀▄ █▀▀▀▀▀█
+    █ ███ █ █▄ ▄  ▀█  ▄  █▀ █ █ ███ █
+    █ ▀▀▀ █ ██ ▀▀██▀▀█ ▄▀▄█▄▄ █ ▀▀▀ █
+    ▀▀▀▀▀▀▀ █ █▄█▄▀ █▄█▄█▄▀▄▀ ▀▀▀▀▀▀▀
+    ▀▄█▀▀▀▀▄ ██ █▄▀▄▄▄▄▀▄ ▀█  ██▀██▄ 
+    ▄ █▀ ▄▀▀█ █ ▀█▀ ▄█▄█▄ ▀  ▄  █▄█▄ 
+    ▀▀▀ ▄█▀▀▄█  ▄▄▀▄▀ ▄▀▀█▀▀▄▄ ▀▄█ ▄▄
+    ██▄█ ▄▀██▀ █ ▄▀█▀ ▀ ▀██ ▄██▀█▄ ▀ 
+    █▄ █▀█▀▄ █ █▀ ██▀ ▀  ▄ ▄▀▀▄█▀▄█ ▀
+    ▀█▀ ▀█▀▄  █ ▄▀██▀ ▀ ██▄ ▄▀███▄█▀█
+    ▄ ▄▄█▄▀█▀ ▀    █▄▄▀▀▄▀▄ ▀▀▀▄ ▀▄▀█
+    █  ▄█▄▀▄ ▄██▄ █ ▄█▄█▄▄▀█▀█ ▄ ▀██▄
+    ▀     ▀▀▄ █ ▄▄▀▄▄▄▄█▄ ▀▀█▀▀▀█▀█▄ 
+    █▀▀▀▀▀█ ▄ ▀▄ ▄█ ▄█▄▄█ ▀██ ▀ █▄█▄ 
+    █ ███ █ █▀ ▀ ▄█▄▀ ▄▀▀█▀ ██▀▀██ ▄ 
+    █ ▀▀▀ █ ▀▄█▀█▄▀█▀ ▀ ▀▄▄▄▄▀▀▀▄▄   
+    ▀▀▀▀▀▀▀ ▀  ▀▀ ▀▀▀ ▀   ▀ ▀▀ ▀  ▀▀ 
+```
 
 ### Remove the function
 
