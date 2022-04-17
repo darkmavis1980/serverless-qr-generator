@@ -17,13 +17,23 @@ describe('generateQR', () => {
     done();
   });
 
-  it('implement tests here', () => {
+  it('should return an SVG header', () => {
     return wrapped.run({
       body: JSON.stringify({
         'url': 'https://www.google.com',
       })
     }).then((response) => {
       expect(response.headers['Content-Type']).toBe('image/svg+xml');
+    });
+  });
+
+  it('should return a 500 error if no url is passed', () => {
+    return wrapped.run({
+      body: JSON.stringify({
+        'url': '',
+      })
+    }).then((response) => {
+      expect(response.statusCode).toBe(500);
     });
   });
 });
