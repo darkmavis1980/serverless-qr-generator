@@ -10,6 +10,12 @@ const lambdaWrapper = jestPlugin.lambdaWrapper;
 
 const wrapped = lambdaWrapper.wrap(handler, { handler: 'generateQR' });
 
+const mockVersionsByteSize = {
+  '2': 8046,
+  '4': 13510,
+  '40': 352630,
+}
+
 describe('generateQR', () => {
   beforeAll((done) => {
 //  lambdaWrapper.init(liveFunction); // Run the deployed lambda
@@ -21,11 +27,71 @@ describe('generateQR', () => {
     return wrapped.run({
       body: JSON.stringify({
         'url': 'https://www.google.com',
+        'type': 'svg',
       })
     }).then((response) => {
       expect(response.headers['Content-Type']).toBe('image/svg+xml');
     });
   });
+
+  it('should return an text header for utf8 type', () => {
+    return wrapped.run({
+      body: JSON.stringify({
+        'url': 'https://www.google.com',
+        'type': 'utf8',
+      })
+    }).then((response) => {
+      expect(response.headers['Content-Type']).toBe('text/plain');
+    });
+  });
+
+  it('should return an text header for terminal type', () => {
+    return wrapped.run({
+      body: JSON.stringify({
+        'url': 'https://www.google.com',
+        'type': 'terminal',
+      })
+    }).then((response) => {
+      expect(response.headers['Content-Type']).toBe('text/plain');
+    });
+  });
+
+  it('should return change the filesize in base of the version 2', () => {
+    return wrapped.run({
+      body: JSON.stringify({
+        'url': 'https://www.google.com',
+        'type': 'terminal',
+        'version': 2
+      })
+    }).then((response) => {
+      expect(response.body.length).toBe(mockVersionsByteSize['2']);
+    });
+  });
+
+  it('should return change the filesize in base of the version 4', () => {
+    return wrapped.run({
+      body: JSON.stringify({
+        'url': 'https://www.google.com',
+        'type': 'terminal',
+        'version': 4
+      })
+    }).then((response) => {
+      expect(response.body.length).toBe(mockVersionsByteSize['4']);
+    });
+  });
+
+  it('should return change the filesize in base of the version 40', () => {
+    return wrapped.run({
+      body: JSON.stringify({
+        'url': 'https://www.google.com',
+        'type': 'terminal',
+        'version': 40
+      })
+    }).then((response) => {
+      expect(response.body.length).toBe(mockVersionsByteSize['40']);
+    });
+  });
+
 
   it('should return a 500 error if no url is passed', () => {
     return wrapped.run({

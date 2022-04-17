@@ -9,7 +9,8 @@
     "remove-app:dev": "serverless remove",
     "remove-app": "serverless remove --stage production",
     "deploy": "rm -Rf .build && serverless deploy --stage production",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "Alessio Michelini",
   "license": "ISC",
