@@ -40,7 +40,7 @@ npm run deploy
 There's a Github Action that will deploy the code to AWS Lambda and API Gateway, so you can use it to deploy the code.
 You will just need to uncomment the following lines:
 
-```bash
+```yaml
 # ...rest of the code
   steps:
     - uses: actions/checkout@v2
