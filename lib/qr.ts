@@ -8,7 +8,7 @@ const origins = {
   'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
 }
 
-export const generate = async (event) => {
+export const generateQR = async (event) => {
   try {
     const {
       url,
