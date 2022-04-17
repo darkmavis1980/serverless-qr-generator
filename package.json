@@ -6,9 +6,9 @@
   "scripts": {
     "offline": "serverless offline",
     "deploy:dev": "rm -Rf .build && serverless deploy",
-    "remove-app": "serverless remove",
-    "remove-app:prod": "serverless remove --stage production",
-    "deploy:prod": "rm -Rf .build && serverless deploy --stage production"
+    "remove-app:dev": "serverless remove",
+    "remove-app": "serverless remove --stage production",
+    "deploy": "rm -Rf .build && serverless deploy --stage production"
   },
   "author": "Alessio Michelini",
   "license": "ISC",
