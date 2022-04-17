@@ -10,6 +10,12 @@ const origins = {
   'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
 }
 
+const mimes = {
+  svg: 'image/svg+xml',
+  terminal: 'text/plain',
+  utf8: 'text/plain',
+}
+
 export const generateQR = async (event) => {
   try {
     const {
@@ -22,7 +28,7 @@ export const generateQR = async (event) => {
     const response = {
       statusCode: 200,
       headers: {
-        'Content-Type': 'image/svg+xml',
+        'Content-Type': mimes[type],
         ...origins,
       },
       body: generated
