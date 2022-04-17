@@ -58,6 +58,27 @@ You will just need to uncomment the following lines:
 
 The last four lines will deploy the code to AWS Lambda and API Gateway.
 
+### How to run it
+
+Once the endpoint is deployed, you should be able to call the following endpoint to generate a QR code:
+
+```bash
+POST <Lambda Path>/generate
+```
+
+With the following payload:
+
+```json
+{
+  "url": "https://www.google.com",
+  "version": 4
+}
+```
+
+> Note: the version is optional and defaults to 1, and accepts a range between 1 and 40. For more info please refer to the [node-qrcode official documentation](https://github.com/soldair/node-qrcode#qr-code-capacity).
+
+The output will be a SVG image with the QR code.
+
 ### Remove the function
 
 To remove the function, you will need to run the following commands:
