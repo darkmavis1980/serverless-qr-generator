@@ -19,6 +19,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+    - run: npm test
     # Enable this to deploy to AWS
     # - name: serverless deploy
     #   uses: serverless/github-action@master

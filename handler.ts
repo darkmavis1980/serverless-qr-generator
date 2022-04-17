@@ -1,7 +1,7 @@
 'use strict';
 
-import {generate} from './lib/qr';
+import {generateQR} from './lib/qr';
 
 export {
-  generate,
+  generateQR,
 };
