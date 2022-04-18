@@ -40,7 +40,7 @@ export const generateQR = async (event) => {
       headers: {
         ...origins,
       },
-      body: JSON.stringify({ message: 'Something went wrong.' })
+      body: error.message
     };
     return response;
   }
