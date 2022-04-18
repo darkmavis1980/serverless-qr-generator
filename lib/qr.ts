@@ -2,7 +2,7 @@
 
 import * as QRCode from 'qrcode';
 import {QRFormBody} from './interfaces/form';
-const QR_VERSION = 2; // QR version, range 2-40
+const QR_VERSION = 4; // QR version, range 1-40
 const DEFAULT_TYPE = 'svg';
 
 const origins = {

@@ -76,8 +76,8 @@ With the following payload:
 }
 ```
 
-The `version` is optional and defaults to 1, and accepts a range between 1 and 40. For more info please refer to the [node-qrcode official documentation](https://github.com/soldair/node-qrcode#qr-code-capacity).
-The `type` is also optional and defaults to `svg`. It accepts svg, terminal or utf8.
+The `version` is optional and defaults to 4, and accepts a range between 1 and 40. For more info please refer to the [node-qrcode official documentation](https://github.com/soldair/node-qrcode#qr-code-capacity).
+The `type` is also optional and defaults to `svg`. It accepts `svg`, `terminal` or `utf8`.
 
 The output will be a image with the QR code, if you are using the endpoint via terminal, using curl, it's recommended to use either `terminal` or `utf8` as an type.
 Example:
