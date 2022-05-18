@@ -1,6 +1,6 @@
 {
   "name": "serverless-qr-code",
-  "version": "1.3.3",
+  "version": "1.4.1",
   "description": "Generate a QR Code",
   "main": "handler.js",
   "scripts": {
@@ -10,11 +10,13 @@
     "remove-app": "serverless remove --stage production",
     "deploy": "rm -Rf .build && serverless deploy --stage production",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "eslint": "eslint ./lib --ext .ts"
   },
   "author": "Alessio Michelini",
   "license": "ISC",
   "devDependencies": {
+    "@hs-web-team/eslint-config-ts": "^0.1.2",
     "@types/jest": "^27.5.1",
     "@types/node": "^17.0.34",
     "jest": "^28.1.0",

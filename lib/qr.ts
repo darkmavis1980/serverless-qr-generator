@@ -10,7 +10,7 @@ const origins = {
   'Access-Control-Allow-Credentials': true, // Required for cookies, authorization headers with HTTPS
 }
 
-const mimes = {
+const mimeTypes = {
   svg: 'image/svg+xml',
   terminal: 'text/plain',
   utf8: 'text/plain',
@@ -23,12 +23,11 @@ export const generateQR = async (event) => {
       version = QR_VERSION,
       type = DEFAULT_TYPE,
     } : QRFormBody = JSON.parse(event.body);
-
     const generated = await QRCode.toString(url, { type, version });
     const response = {
       statusCode: 200,
       headers: {
-        'Content-Type': mimes[type],
+        'Content-Type': mimeTypes[type],
         ...origins,
       },
       body: generated
