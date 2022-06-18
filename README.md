@@ -8,7 +8,7 @@ then you can use the URL of the function to generate QR codes.
 
 ## Requiremenents
 
-- Node.js 14+
+- Node.js 16+
 - Serverless Framework
 
 You will also need an AWS account with right permissions to deploy AWS Lambda function with Cloud Formation and API Gateway.
@@ -134,7 +134,7 @@ Or you can add the AWS credentials adding the ARN with the permissions to deploy
 ```yaml
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs16.x
   iam:
     role: arn:aws:iam::123456789:role/replace-this-with-your-role
 ```
