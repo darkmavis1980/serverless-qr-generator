@@ -1,6 +1,6 @@
 {
   "name": "serverless-qr-code",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Generate a QR Code",
   "main": "handler.js",
   "scripts": {
