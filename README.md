@@ -38,22 +38,22 @@ npm run deploy
 ### Deploy it with Github Actions
 
 There's a Github Action that will deploy the code to AWS Lambda and API Gateway, so you can use it to deploy the code.
-You will just need to uncomment the following lines:
+You will just need to uncomment the following lines in the `release.yml`:
 
 ```yaml
-# ...rest of the code
-  steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    # Enable this to deploy to AWS
-    - name: serverless deploy
-      uses: serverless/github-action@master
-      with:
-        args: deploy --stage production
+# rest of the code
+steps:
+  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  - uses: actions/checkout@v3
+  - uses: actions/setup-node@v3
+    with:
+      node-version: 16
+  - run: npm install
+  # Enable this to deploy to AWS
+  - name: serverless deploy
+    uses: serverless/github-action@master
+    with:
+      args: deploy --stage production
 ```
 
 The last four lines will deploy the code to AWS Lambda and API Gateway.
