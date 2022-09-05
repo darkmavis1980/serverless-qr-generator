@@ -1,6 +1,6 @@
 {
   "name": "serverless-qr-code",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Generate a QR Code",
   "main": "handler.js",
   "scripts": {
@@ -16,22 +16,22 @@
   "author": "Alessio Michelini",
   "license": "ISC",
   "devDependencies": {
-    "@hs-web-team/eslint-config-ts": "^0.2.1",
-    "@types/jest": "^28.1.2",
-    "@types/node": "^18.0.0",
-    "jest": "^28.1.1",
-    "serverless": "^3.19.0",
+    "@hs-web-team/eslint-config-ts": "^0.2.2",
+    "@types/jest": "^28.1.8",
+    "@types/node": "^18.7.15",
+    "jest": "^28.1.3",
+    "serverless": "^3.22.0",
     "serverless-jest-plugin": "^0.4.0",
-    "serverless-offline": "^8.8.0",
-    "serverless-webpack": "^5.7.1",
-    "ts-jest": "^28.0.5",
-    "ts-loader": "^9.3.0",
-    "typescript": "^4.7.4",
-    "webpack": "^5.73.0"
+    "serverless-offline": "^10.0.0",
+    "serverless-webpack": "^5.9.1",
+    "ts-jest": "^28.0.8",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "qrcode": "^1.5.0",
+    "qrcode": "^1.5.1",
     "svgson": "^5.2.1"
   }
 }
