@@ -47,7 +47,7 @@ steps:
   - uses: actions/checkout@v3
   - uses: actions/setup-node@v3
     with:
-      node-version: 16
+      node-version: 18
   - run: npm install
   # Enable this to deploy to AWS
   - name: serverless deploy
@@ -134,7 +134,7 @@ Or you can add the AWS credentials adding the ARN with the permissions to deploy
 ```yaml
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   iam:
     role: arn:aws:iam::123456789:role/replace-this-with-your-role
 ```

@@ -18,7 +18,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   stage: ${opt:stage, 'production'}
   region: ${opt:region, 'eu-west-1'}
   iam:
