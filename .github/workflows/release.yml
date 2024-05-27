@@ -14,6 +14,6 @@ jobs:
       - run: npm install
       # Enable this to deploy to AWS
       # - name: serverless deploy
-      #   uses: serverless/github-action@master
+      #   uses: serverless/github-action@v3.2
       #   with:
       #     args: deploy --stage production
