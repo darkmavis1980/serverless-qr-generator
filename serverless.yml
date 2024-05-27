@@ -18,11 +18,12 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
+  profile: ${env:AWS_PROFILE, 'default'}
   stage: ${opt:stage, 'production'}
   region: ${opt:region, 'eu-west-1'}
   iam:
-    role: arn:aws:iam::123456789:role/replace-this-guy
+    role: ${env:AWS_IAM_ROLE, ''}
   apiGateway:
     shouldStartNameWithService: true
 
