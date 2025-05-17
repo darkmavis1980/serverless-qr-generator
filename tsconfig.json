@@ -8,6 +8,7 @@
     "outDir": ".build",
     "moduleResolution": "node",
     "lib": ["es2022"],
-    "rootDir": "./"
+    "rootDir": "./",
+    "esModuleInterop": true
   }
 }
