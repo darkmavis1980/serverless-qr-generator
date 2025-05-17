@@ -11,7 +11,9 @@
     "deploy": "rm -Rf .build && serverless deploy --stage production",
     "test": "jest",
     "test:watch": "jest --watch",
-    "eslint": "eslint ./lib --ext .ts"
+    "eslint": "eslint ./lib --ext .ts",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
   },
   "engines": {
     "node": ">=22.0.0"
@@ -19,6 +21,7 @@
   "author": "Alessio Michelini",
   "license": "ISC",
   "devDependencies": {
+    "@hs-web-team/eslint-config-node": "^2.1.1",
     "@hs-web-team/eslint-config-ts": "^2.1.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.15.18",
