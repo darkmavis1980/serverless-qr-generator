@@ -18,7 +18,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs20.x
+  runtime: nodejs22.x
   profile: ${env:AWS_PROFILE, 'default'}
   stage: ${opt:stage, 'production'}
   region: ${opt:region, 'eu-west-1'}

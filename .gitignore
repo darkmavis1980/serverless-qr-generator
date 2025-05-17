@@ -11,3 +11,4 @@ jspm_packages
 
 .build
 .webpack
+**/.claude/settings.local.json

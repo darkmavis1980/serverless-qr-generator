@@ -8,7 +8,7 @@ then you can use the URL of the function to generate QR codes.
 
 ## Requiremenents
 
-- Node.js 16+
+- Node.js 22+
 - Serverless Framework
 
 You will also need an AWS account with right permissions to deploy AWS Lambda function with Cloud Formation and API Gateway.
@@ -44,14 +44,14 @@ You will just need to uncomment the following lines in the `release.yml`:
 # rest of the code
 steps:
   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  - uses: actions/checkout@v3
-  - uses: actions/setup-node@v3
+  - uses: actions/checkout@v4
+  - uses: actions/setup-node@v4
     with:
-      node-version: 18
+      node-version: 22
   - run: npm install
   # Enable this to deploy to AWS
   - name: serverless deploy
-    uses: serverless/github-action@master
+    uses: serverless/github-action@v3.2
     with:
       args: deploy --stage production
 ```
@@ -134,9 +134,9 @@ Or you can add the AWS credentials adding the ARN with the permissions to deploy
 ```yaml
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
   iam:
-    role: arn:aws:iam::123456789:role/replace-this-with-your-role
+    role: ${env:AWS_IAM_ROLE}
 ```
 
 For more info regarding AWS IAM, please read this [documentation](https://www.serverless.com/framework/docs/providers/aws/guide/iam).
